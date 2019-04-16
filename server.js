@@ -6,7 +6,7 @@ var PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-//
+
 // var reservations = [
 //   {
 //     customerName: "yoda",
@@ -14,23 +14,22 @@ app.use(express.json());
 //     phoneNumber: "555-555-5555"
 //   },
 //
-// 
+//
 // ];
+
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "home.html"));
+});
+
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+app.get("/reserve", function(req, res) {
+  res.sendFile(path.join(__dirname, "reserve.html"));
+});
 //
-// app.get("/", function(req, res) {
-//   res.sendFile(path.join(__dirname, "home.html"));
-// });
-//
-// app.get("/add", function(req, res) {
-//   res.sendFile(path.join(__dirname, "tables.html"));
-// });
-//
-// app.get("/all", function(req, res) {
-//   res.sendFile(path.join(__dirname, "reserve.html"));
-// });
-//
-// // Displays all characters
-// app.get("/api/characters", function(req, res) {
+// app.get("/ch", function(req, res) {
 //   return res.json(characters);
 // });
 //
