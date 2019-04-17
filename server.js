@@ -14,7 +14,7 @@ var reservations = [{
   customerEmail: "test@test.com",
   phoneNumber: "555-555-5555",
   userName: "forexe"
-}];
+}]; 
 
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "home.html"));
@@ -32,13 +32,13 @@ app.post("/api/reserve", function(req, res) {
 
   var newReservation = req.body;
 
-  newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
-
+  newReservation.routeName = newReservation.customerName.replace(/\s+/g, "").toLowerCase();
+  //
   console.log(newReservation);
-
+  //
   reservations.push(newReservation);
 
-  res.json(newReservation);
+  res.json(reservations);
 });
 
 app.listen(PORT, function() {

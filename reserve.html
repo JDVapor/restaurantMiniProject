@@ -61,7 +61,8 @@
 
 </html>
 <script type="text/javascript">
-  $("#submit").on("click", function() {
+  $("#submit").on("click", function(e) {
+    e.preventDefault();
     var newReservation = {
       customerName: $('#reserve_name').val().trim(),
       phoneNumber: $('#reserve_phone').val().trim(),
@@ -71,7 +72,7 @@
     console.log(newReservation);
 
     $.post("/api/reserve", newReservation).then(function(data) {
-
+      console.log(data);
       if (data == true) {
         alert("Yay! You are officially booked!")
       }
