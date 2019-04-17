@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
               <label for="">Username</label>
-              <input type="text" class="form-control" id="reserve_uniqueID">
+              <input type="text" class="form-control" id="reserve_userName">
             </div>
             <button id="submit" type="submit" class="btn btn-primary submit">Submit</button>
           </div>
@@ -67,7 +67,7 @@
       customerName: $('#reserve_name').val().trim(),
       phoneNumber: $('#reserve_phone').val().trim(),
       customerEmail: $('#reserve_email').val().trim(),
-      uniqueID: $('#reserve_uniqueID').val().trim()
+      userName: $('#reserve_userName').val().trim()
     };
     console.log(newReservation);
 
@@ -82,7 +82,7 @@
       $('#reserve_name').val("");
       $('#reserve_phone').val("");
       $('#reserve_email').val("");
-      $('#reserve_uniqueID').val("");
+      $('#reserve_userName').val("");
     });
     return false;
   });

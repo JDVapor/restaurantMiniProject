@@ -11,10 +11,17 @@ app.use(express.json());
 
 var reservations = [{
   customerName: "yoda",
-  customerEmail: "test@test.com",
   phoneNumber: "555-555-5555",
+  customerEmail: "test@test.com",
   userName: "forexe"
-}]; 
+}];
+
+var waitList = [{
+  customerName: "Darth Vader",
+  phoneNumber: "555-555-5554",
+  customerEmail: "testme@test.com",
+  userName: "forexenew"
+}];
 
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "home.html"));
@@ -26,6 +33,14 @@ app.get("/tables", function(req, res) {
 
 app.get("/reserve", function(req, res) {
   res.sendFile(path.join(__dirname, "reserve.html"));
+});
+
+app.get("/api/tables", function(req, res) {
+  res.send(reservations);
+});
+
+app.get("/api/waitlist", function(req, res) {
+  res.send(waitList);
 });
 
 app.post("/api/reserve", function(req, res) {
